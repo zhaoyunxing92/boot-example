@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunny.boot.example.powerStation.mapper.TbPowerStationMapper" >
+  <resultMap id="BaseResultMap" type="com.sunny.boot.example.powerStation.model.TbPowerStation" >
+    <!-- Don't change -->
+    <id column="tbps_id" property="tbpsId" jdbcType="BIGINT" />
+    <result column="tbps_host" property="tbpsHost" jdbcType="BIGINT" />
+    <result column="tbps_outlets" property="tbpsOutlets" jdbcType="BIGINT" />
+    <result column="tbps_supplier" property="tbpsSupplier" jdbcType="BIGINT" />
+    <result column="tbps_area" property="tbpsArea" jdbcType="BIGINT" />
+    <result column="tbps_name" property="tbpsName" jdbcType="VARCHAR" />
+    <result column="tbps_address" property="tbpsAddress" jdbcType="VARCHAR" />
+    <result column="tbps_location" property="tbpsLocation" jdbcType="VARCHAR" />
+    <result column="tbps_longitude" property="tbpsLongitude" jdbcType="DOUBLE" />
+    <result column="tbps_latitude" property="tbpsLatitude" jdbcType="DOUBLE" />
+    <result column="tbps_fast" property="tbpsFast" jdbcType="INTEGER" />
+    <result column="tbps_slow" property="tbpsSlow" jdbcType="INTEGER" />
+    <result column="tbps_person" property="tbpsPerson" jdbcType="VARCHAR" />
+    <result column="tbps_tel" property="tbpsTel" jdbcType="VARCHAR" />
+    <result column="tbps_profile" property="tbpsProfile" jdbcType="VARCHAR" />
+    <result column="tbps_time_desc" property="tbpsTimeDesc" jdbcType="VARCHAR" />
+    <result column="tbps_fee_server" property="tbpsFeeServer" jdbcType="VARCHAR" />
+    <result column="tbps_fee_park" property="tbpsFeePark" jdbcType="VARCHAR" />
+    <result column="tbps_remark" property="tbpsRemark" jdbcType="VARCHAR" />
+    <result column="tbps_update_time" property="tbpsUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="tbps_add_time" property="tbpsAddTime" jdbcType="TIMESTAMP" />
+    <result column="tbps_status" property="tbpsStatus" jdbcType="SMALLINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!-- Don't change -->
+    tbps_id, tbps_host, tbps_outlets, tbps_supplier, tbps_area, tbps_name, tbps_address, 
+    tbps_location, tbps_longitude, tbps_latitude, tbps_fast, tbps_slow, tbps_person, 
+    tbps_tel, tbps_profile, tbps_time_desc, tbps_fee_server, tbps_fee_park, tbps_remark, 
+    tbps_update_time, tbps_add_time, tbps_status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    <!-- Don't change -->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_power_station
+    where tbps_id = #{tbpsId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    <!-- Don't change -->
+    delete from tb_power_station
+    where tbps_id = #{tbpsId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sunny.boot.example.powerStation.model.TbPowerStation" >
+    <!-- Don't change -->
+    insert into tb_power_station (tbps_id, tbps_host, tbps_outlets, 
+      tbps_supplier, tbps_area, tbps_name, 
+      tbps_address, tbps_location, tbps_longitude, 
+      tbps_latitude, tbps_fast, tbps_slow, 
+      tbps_person, tbps_tel, tbps_profile, 
+      tbps_time_desc, tbps_fee_server, tbps_fee_park, 
+      tbps_remark, tbps_update_time, tbps_add_time, 
+      tbps_status)
+    values (#{tbpsId,jdbcType=BIGINT}, #{tbpsHost,jdbcType=BIGINT}, #{tbpsOutlets,jdbcType=BIGINT}, 
+      #{tbpsSupplier,jdbcType=BIGINT}, #{tbpsArea,jdbcType=BIGINT}, #{tbpsName,jdbcType=VARCHAR}, 
+      #{tbpsAddress,jdbcType=VARCHAR}, #{tbpsLocation,jdbcType=VARCHAR}, #{tbpsLongitude,jdbcType=DOUBLE}, 
+      #{tbpsLatitude,jdbcType=DOUBLE}, #{tbpsFast,jdbcType=INTEGER}, #{tbpsSlow,jdbcType=INTEGER}, 
+      #{tbpsPerson,jdbcType=VARCHAR}, #{tbpsTel,jdbcType=VARCHAR}, #{tbpsProfile,jdbcType=VARCHAR}, 
+      #{tbpsTimeDesc,jdbcType=VARCHAR}, #{tbpsFeeServer,jdbcType=VARCHAR}, #{tbpsFeePark,jdbcType=VARCHAR}, 
+      #{tbpsRemark,jdbcType=VARCHAR}, #{tbpsUpdateTime,jdbcType=TIMESTAMP}, #{tbpsAddTime,jdbcType=TIMESTAMP}, 
+      #{tbpsStatus,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sunny.boot.example.powerStation.model.TbPowerStation" >
+    <!-- Don't change -->
+    insert into tb_power_station
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tbpsId != null" >
+        tbps_id,
+      </if>
+      <if test="tbpsHost != null" >
+        tbps_host,
+      </if>
+      <if test="tbpsOutlets != null" >
+        tbps_outlets,
+      </if>
+      <if test="tbpsSupplier != null" >
+        tbps_supplier,
+      </if>
+      <if test="tbpsArea != null" >
+        tbps_area,
+      </if>
+      <if test="tbpsName != null" >
+        tbps_name,
+      </if>
+      <if test="tbpsAddress != null" >
+        tbps_address,
+      </if>
+      <if test="tbpsLocation != null" >
+        tbps_location,
+      </if>
+      <if test="tbpsLongitude != null" >
+        tbps_longitude,
+      </if>
+      <if test="tbpsLatitude != null" >
+        tbps_latitude,
+      </if>
+      <if test="tbpsFast != null" >
+        tbps_fast,
+      </if>
+      <if test="tbpsSlow != null" >
+        tbps_slow,
+      </if>
+      <if test="tbpsPerson != null" >
+        tbps_person,
+      </if>
+      <if test="tbpsTel != null" >
+        tbps_tel,
+      </if>
+      <if test="tbpsProfile != null" >
+        tbps_profile,
+      </if>
+      <if test="tbpsTimeDesc != null" >
+        tbps_time_desc,
+      </if>
+      <if test="tbpsFeeServer != null" >
+        tbps_fee_server,
+      </if>
+      <if test="tbpsFeePark != null" >
+        tbps_fee_park,
+      </if>
+      <if test="tbpsRemark != null" >
+        tbps_remark,
+      </if>
+      <if test="tbpsUpdateTime != null" >
+        tbps_update_time,
+      </if>
+      <if test="tbpsAddTime != null" >
+        tbps_add_time,
+      </if>
+      <if test="tbpsStatus != null" >
+        tbps_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tbpsId != null" >
+        #{tbpsId,jdbcType=BIGINT},
+      </if>
+      <if test="tbpsHost != null" >
+        #{tbpsHost,jdbcType=BIGINT},
+      </if>
+      <if test="tbpsOutlets != null" >
+        #{tbpsOutlets,jdbcType=BIGINT},
+      </if>
+      <if test="tbpsSupplier != null" >
+        #{tbpsSupplier,jdbcType=BIGINT},
+      </if>
+      <if test="tbpsArea != null" >
+        #{tbpsArea,jdbcType=BIGINT},
+      </if>
+      <if test="tbpsName != null" >
+        #{tbpsName,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsAddress != null" >
+        #{tbpsAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsLocation != null" >
+        #{tbpsLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsLongitude != null" >
+        #{tbpsLongitude,jdbcType=DOUBLE},
+      </if>
+      <if test="tbpsLatitude != null" >
+        #{tbpsLatitude,jdbcType=DOUBLE},
+      </if>
+      <if test="tbpsFast != null" >
+        #{tbpsFast,jdbcType=INTEGER},
+      </if>
+      <if test="tbpsSlow != null" >
+        #{tbpsSlow,jdbcType=INTEGER},
+      </if>
+      <if test="tbpsPerson != null" >
+        #{tbpsPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsTel != null" >
+        #{tbpsTel,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsProfile != null" >
+        #{tbpsProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsTimeDesc != null" >
+        #{tbpsTimeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsFeeServer != null" >
+        #{tbpsFeeServer,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsFeePark != null" >
+        #{tbpsFeePark,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsRemark != null" >
+        #{tbpsRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsUpdateTime != null" >
+        #{tbpsUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tbpsAddTime != null" >
+        #{tbpsAddTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tbpsStatus != null" >
+        #{tbpsStatus,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sunny.boot.example.powerStation.model.TbPowerStation" >
+    <!-- Don't change -->
+    update tb_power_station
+    <set >
+      <if test="tbpsHost != null" >
+        tbps_host = #{tbpsHost,jdbcType=BIGINT},
+      </if>
+      <if test="tbpsOutlets != null" >
+        tbps_outlets = #{tbpsOutlets,jdbcType=BIGINT},
+      </if>
+      <if test="tbpsSupplier != null" >
+        tbps_supplier = #{tbpsSupplier,jdbcType=BIGINT},
+      </if>
+      <if test="tbpsArea != null" >
+        tbps_area = #{tbpsArea,jdbcType=BIGINT},
+      </if>
+      <if test="tbpsName != null" >
+        tbps_name = #{tbpsName,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsAddress != null" >
+        tbps_address = #{tbpsAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsLocation != null" >
+        tbps_location = #{tbpsLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsLongitude != null" >
+        tbps_longitude = #{tbpsLongitude,jdbcType=DOUBLE},
+      </if>
+      <if test="tbpsLatitude != null" >
+        tbps_latitude = #{tbpsLatitude,jdbcType=DOUBLE},
+      </if>
+      <if test="tbpsFast != null" >
+        tbps_fast = #{tbpsFast,jdbcType=INTEGER},
+      </if>
+      <if test="tbpsSlow != null" >
+        tbps_slow = #{tbpsSlow,jdbcType=INTEGER},
+      </if>
+      <if test="tbpsPerson != null" >
+        tbps_person = #{tbpsPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsTel != null" >
+        tbps_tel = #{tbpsTel,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsProfile != null" >
+        tbps_profile = #{tbpsProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsTimeDesc != null" >
+        tbps_time_desc = #{tbpsTimeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsFeeServer != null" >
+        tbps_fee_server = #{tbpsFeeServer,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsFeePark != null" >
+        tbps_fee_park = #{tbpsFeePark,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsRemark != null" >
+        tbps_remark = #{tbpsRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="tbpsUpdateTime != null" >
+        tbps_update_time = #{tbpsUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tbpsAddTime != null" >
+        tbps_add_time = #{tbpsAddTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tbpsStatus != null" >
+        tbps_status = #{tbpsStatus,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where tbps_id = #{tbpsId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sunny.boot.example.powerStation.model.TbPowerStation" >
+    <!-- Don't change -->
+    update tb_power_station
+    set tbps_host = #{tbpsHost,jdbcType=BIGINT},
+      tbps_outlets = #{tbpsOutlets,jdbcType=BIGINT},
+      tbps_supplier = #{tbpsSupplier,jdbcType=BIGINT},
+      tbps_area = #{tbpsArea,jdbcType=BIGINT},
+      tbps_name = #{tbpsName,jdbcType=VARCHAR},
+      tbps_address = #{tbpsAddress,jdbcType=VARCHAR},
+      tbps_location = #{tbpsLocation,jdbcType=VARCHAR},
+      tbps_longitude = #{tbpsLongitude,jdbcType=DOUBLE},
+      tbps_latitude = #{tbpsLatitude,jdbcType=DOUBLE},
+      tbps_fast = #{tbpsFast,jdbcType=INTEGER},
+      tbps_slow = #{tbpsSlow,jdbcType=INTEGER},
+      tbps_person = #{tbpsPerson,jdbcType=VARCHAR},
+      tbps_tel = #{tbpsTel,jdbcType=VARCHAR},
+      tbps_profile = #{tbpsProfile,jdbcType=VARCHAR},
+      tbps_time_desc = #{tbpsTimeDesc,jdbcType=VARCHAR},
+      tbps_fee_server = #{tbpsFeeServer,jdbcType=VARCHAR},
+      tbps_fee_park = #{tbpsFeePark,jdbcType=VARCHAR},
+      tbps_remark = #{tbpsRemark,jdbcType=VARCHAR},
+      tbps_update_time = #{tbpsUpdateTime,jdbcType=TIMESTAMP},
+      tbps_add_time = #{tbpsAddTime,jdbcType=TIMESTAMP},
+      tbps_status = #{tbpsStatus,jdbcType=SMALLINT}
+    where tbps_id = #{tbpsId,jdbcType=BIGINT}
+  </update>
+</mapper>
